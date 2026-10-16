@@ -12,3 +12,217 @@ select { font-size: 1.25rem; padding: .5rem; }
 button { flex: 1 1 8rem; min-height: 4.5rem; font-size: 1.5rem; font-weight: 700; border: 3px solid #fff; border-radius: .75rem; background: #1a3cff; color: #fff; cursor: pointer; }
 button:focus-visible, select:focus-visible { outline: 4px solid #ffd400; outline-offset: 2px; }
 footer { font-size: .9rem; opacity: .8; }
+
+/* Christmas welcome page */
+.christmas-home {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #10131d;
+  color: #fff;
+}
+
+.christmas-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image: url("/images/christmas-carollers.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.christmas-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 12, 24, 0.35) 0%,
+    rgba(8, 12, 24, 0.65) 45%,
+    rgba(8, 12, 24, 0.94) 100%
+  );
+  pointer-events: none;
+}
+
+.christmas-content {
+  width: min(100% - 2rem, 48rem);
+  margin: 0 auto;
+  padding: 3rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.christmas-eyebrow {
+  margin: 0;
+  color: #ffe4a3;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.christmas-content h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 8vw, 4.5rem);
+  line-height: 1.05;
+  text-shadow: 0 3px 18px #000;
+}
+
+.christmas-intro {
+  max-width: 38rem;
+  margin: 0;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  line-height: 1.6;
+  text-shadow: 0 2px 8px #000;
+}
+
+.christmas-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 3.5rem;
+  padding: 0.75rem 1.25rem;
+  border: 3px solid #fff0c2;
+  border-radius: 0.75rem;
+  background: #8d182c;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 18px #0006;
+}
+
+.christmas-primary:hover {
+  background: #ad243b;
+}
+
+.christmas-primary:focus-visible {
+  outline: 4px solid #ffd400;
+  outline-offset: 4px;
+}
+
+.carol-list,
+.accessibility-note {
+  padding: 1.25rem;
+  border: 1px solid #ffffff55;
+  border-radius: 1rem;
+  background: rgba(12, 17, 28, 0.88);
+  box-shadow: 0 8px 24px #0003;
+  backdrop-filter: blur(5px);
+}
+
+.carol-list h2,
+.accessibility-note h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.35rem, 4vw, 1.8rem);
+  line-height: 1.25;
+}
+
+.carol-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carol-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid #ffffff35;
+}
+
+.carol-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.carol-status {
+  color: #ffe4a3;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.accessibility-note p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.christmas-footnote {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Gentle, decorative snowfall */
+.snowfall {
+  position: absolute;
+  inset: -100% 0 0;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: repeat;
+  will-change: transform;
+}
+
+.snowfall-one {
+  opacity: 0.65;
+  background-image:
+    radial-gradient(3px 3px at 40px 60px, #fff 98%, transparent),
+    radial-gradient(2px 2px at 120px 180px, #fff 98%, transparent),
+    radial-gradient(3px 3px at 220px 100px, #fff 98%, transparent),
+    radial-gradient(2px 2px at 300px 250px, #fff 98%, transparent);
+  background-size: 320px 320px;
+  animation: snow-fall 18s linear infinite;
+}
+
+.snowfall-two {
+  opacity: 0.4;
+  background-image:
+    radial-gradient(2px 2px at 70px 130px, #fff 98%, transparent),
+    radial-gradient(4px 4px at 180px 40px, #fff 98%, transparent),
+    radial-gradient(2px 2px at 260px 210px, #fff 98%, transparent);
+  background-size: 360px 360px;
+  animation: snow-fall 28s linear infinite;
+}
+
+@keyframes snow-fall {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(18px, 50%, 0);
+  }
+}
+
+@media (min-width: 600px) {
+  .christmas-content {
+    padding-top: 4rem;
+  }
+
+  .carol-list li {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .carol-status {
+    text-align: right;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snowfall {
+    animation: none;
+  }
+}
