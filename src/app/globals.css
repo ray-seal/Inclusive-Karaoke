@@ -40,9 +40,9 @@ footer { font-size: .9rem; opacity: .8; }
   z-index: -2;
   background: linear-gradient(
     180deg,
-    rgba(8, 12, 24, 0.35) 0%,
-    rgba(8, 12, 24, 0.65) 45%,
-    rgba(8, 12, 24, 0.94) 100%
+    rgba(8, 12, 24, 0.12) 0%,
+    rgba(8, 12, 24, 0.30) 45%,
+    rgba(8, 12, 24, 0.55) 100%
   );
   pointer-events: none;
 }
@@ -114,7 +114,7 @@ footer { font-size: .9rem; opacity: .8; }
   padding: 1.25rem;
   border: 1px solid #ffffff55;
   border-radius: 1rem;
-  background: rgba(12, 17, 28, 0.88);
+  background: rgba(12, 17, 28, 0.62);
   box-shadow: 0 8px 24px #0003;
   backdrop-filter: blur(5px);
 }
