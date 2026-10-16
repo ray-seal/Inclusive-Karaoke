@@ -1,4 +1,6 @@
+
 "use client";
+
 import { useCallback, useEffect, useRef, useState } from "react";
 
 /** Playback only: knows nothing about lyrics or visuals. */
@@ -12,16 +14,29 @@ export function useAudioPlayer(src: string) {
     ref.current = audio;
     setTime(0);
     setPlaying(false);
+
     let raf = 0;
+
     const tick = () => {
       setTime(audio.currentTime);
       raf = requestAnimationFrame(tick);
     };
-    const onPlay = () => { setPlaying(true); raf = requestAnimationFrame(tick); };
-    const onStop = () => { setPlaying(false); cancelAnimationFrame(raf); setTime(audio.currentTime); };
+
+    const onPlay = () => {
+      setPlaying(true);
+      raf = requestAnimationFrame(tick);
+    };
+
+    const onStop = () => {
+      setPlaying(false);
+      cancelAnimationFrame(raf);
+      setTime(audio.currentTime);
+    };
+
     audio.addEventListener("play", onPlay);
     audio.addEventListener("pause", onStop);
     audio.addEventListener("ended", onStop);
+
     return () => {
       cancelAnimationFrame(raf);
       audio.pause();
@@ -31,26 +46,39 @@ export function useAudioPlayer(src: string) {
     };
   }, [src]);
 
-  const play = useCallback(() => { void ref.current?.const prepare = useCallback(() => {
-  const audio = ref.current;
-  if (!audio) return;
-
-  audio.muted = true;
-  audio.currentTime = 0;
-
-  void audio.play()
-    .then(() => {
-      audio.pause();
-      audio.currentTime = 0;
-      audio.muted = false;
-    })
-    .catch((error) => {
-      audio.muted = false;
-      console.error("Audio preparation failed:", error);
-    });
-}, []);
-  const pause = useCallback(() => ref.current?.pause(), []);
-  const restart = useCallback(() => {
-    if (ref.current) { ref.current.currentTime = 0; void ref.current.play(); }
+  const play = useCallback(() => {
+    void ref.current?.play();
   }, []);
+
+  const pause = useCallback(() => {
+    ref.current?.pause();
+  }, []);
+
+  const prepare = useCallback(() => {
+    const audio = ref.current;
+    if (!audio) return;
+
+    audio.muted = true;
+    audio.currentTime = 0;
+
+    void audio.play()
+      .then(() => {
+        audio.pause();
+        audio.currentTime = 0;
+        audio.muted = false;
+      })
+      .catch((error) => {
+        audio.muted = false;
+        console.error("Audio preparation failed:", error);
+      });
+  }, []);
+
+  const restart = useCallback(() => {
+    if (ref.current) {
+      ref.current.currentTime = 0;
+      void ref.current.play();
+    }
+  }, []);
+
   return { time, playing, play, pause, restart, prepare };
+}
