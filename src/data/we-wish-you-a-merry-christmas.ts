@@ -44,6 +44,7 @@ export const weWishYouMerryChristmas: Song = {
   { text: "Merry", start: 3.6, end: 4.5 },
   { text: "Christmas", start: 4.5, end: 7 },
 ],
+},
     { text: "We wish you a Merry Christmas", start: 7, end: 14 },
     { text: "We wish you a Merry Christmas", start: 14, end: 21 },
     { text: "And a Happy New Year", start: 21, end: 28 },
