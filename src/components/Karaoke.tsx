@@ -14,7 +14,7 @@ export function Karaoke({ songs }: { songs: Song[] }) {
   const [countdown, setCountdown] = useState<number | null>(null);
 
   const song = songs.find((s) => s.id === songId) ?? songs[0];
-  const { time, playing, pause, restart } =
+  const { time, playing, pause, restart, prepare } =
     useAudioPlayer(song.audio.src);
 
   useEffect(() => {
@@ -37,6 +37,7 @@ export function Karaoke({ songs }: { songs: Song[] }) {
       pause();
       setCountdown(null);
     } else {
+      prepare();
       setCountdown(5);
     }
   }
