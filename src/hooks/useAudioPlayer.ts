@@ -53,5 +53,4 @@ export function useAudioPlayer(src: string) {
   const restart = useCallback(() => {
     if (ref.current) { ref.current.currentTime = 0; void ref.current.play(); }
   }, []);
-  return { time, playing, play, pause, restart };
-}
+  return { time, playing, play, pause, restart, prepare };
