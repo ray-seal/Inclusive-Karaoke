@@ -1,6 +1,6 @@
-import { Karaoke } from "@/components/Karaoke";
-import { testSong } from "@/data/test-song";
+
+import { ChristmasHome } from "@/components/ChristmasHome";
 
 export default function Home() {
-  return <Karaoke songs={[testSong]} />;
+  return <ChristmasHome />;
 }
