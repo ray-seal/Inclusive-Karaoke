@@ -36,7 +36,6 @@ export const weWishYouMerryChristmas: Song = {
   start: 0,
   end: 7,
   words: [
-    words: [
   { text: "We", start: 2.4, end: 2.7 },
   { text: "wish", start: 2.7, end: 3.1 },
   { text: "you", start: 3.1, end: 3.4 },
