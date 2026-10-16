@@ -31,7 +31,24 @@ export function useAudioPlayer(src: string) {
     };
   }, [src]);
 
-  const play = useCallback(() => { void ref.current?.play(); }, []);
+  const play = useCallback(() => { void ref.current?.const prepare = useCallback(() => {
+  const audio = ref.current;
+  if (!audio) return;
+
+  audio.muted = true;
+  audio.currentTime = 0;
+
+  void audio.play()
+    .then(() => {
+      audio.pause();
+      audio.currentTime = 0;
+      audio.muted = false;
+    })
+    .catch((error) => {
+      audio.muted = false;
+      console.error("Audio preparation failed:", error);
+    });
+}, []);
   const pause = useCallback(() => ref.current?.pause(), []);
   const restart = useCallback(() => {
     if (ref.current) { ref.current.currentTime = 0; void ref.current.play(); }
