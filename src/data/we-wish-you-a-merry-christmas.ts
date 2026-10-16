@@ -31,7 +31,19 @@ export const weWishYouMerryChristmas: Song = {
     licence: audioLicence,
   },
   lyrics: [
-    { text: "We wish you a Merry Christmas", start: 0, end: 7 },
+    {
+  text: "We wish you a Merry Christmas",
+  start: 0,
+  end: 7,
+  words: [
+    { text: "We", start: 0, end: 0.6 },
+    { text: "wish", start: 0.6, end: 1.5 },
+    { text: "you", start: 1.5, end: 2.1 },
+    { text: "a", start: 2.1, end: 2.4 },
+    { text: "Merry", start: 2.4, end: 4 },
+    { text: "Christmas", start: 4, end: 7 },
+  ],
+},
     { text: "We wish you a Merry Christmas", start: 7, end: 14 },
     { text: "We wish you a Merry Christmas", start: 14, end: 21 },
     { text: "And a Happy New Year", start: 21, end: 28 },
