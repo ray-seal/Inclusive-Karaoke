@@ -110,5 +110,8 @@ lyrics: [
     start: 88.06,
     end: 92.38,
   },
-]
+],
+  assets: [],
+  cues: [],
+};
 
