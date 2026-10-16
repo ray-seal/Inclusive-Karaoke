@@ -9,8 +9,11 @@ export function LyricsDisplay({ lines, time }: { lines: LyricLine[]; time: numbe
         const isActive = i === current;
         const wi = isActive ? activeWordIndex(line, time) : -1;
         return (
-          <p key={i} className={isActive ? "line active" : "line"} aria-current={isActive ? "true" : undefined}>
-            {line.words
+         <p
+  key={i}
+  className={isActive && !line.words ? "line active" : "line"}
+  aria-current={isActive ? "true" : undefined}
+>           {line.words
               ? line.words.map((w, j) => (
                   <span key={j} className={j === wi ? "word sung" : "word"}>{w.text} </span>
                 ))
