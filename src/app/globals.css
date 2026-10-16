@@ -232,3 +232,34 @@ footer { font-size: .9rem; opacity: .8; }
     animation: none;
   }
 }
+
+
+.countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 12rem;
+  border: 4px solid #ffd400;
+  border-radius: 1rem;
+  background: #17202c;
+  color: #fff;
+  text-align: center;
+}
+
+.countdown span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.countdown strong {
+  font-size: clamp(5rem, 20vw, 9rem);
+  line-height: 1;
+  color: #ffd400;
+}
+
+button:disabled {
+  opacity: 0.8;
+  cursor: default;
+}
